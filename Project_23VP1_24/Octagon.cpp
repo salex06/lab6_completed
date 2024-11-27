@@ -25,6 +25,9 @@ void Octagon::show(System::Drawing::Graphics^ g, System::Drawing::Color out, Sys
 	for (int i = 0; i < OCTAGON_ANGLES; i++) {
 		double x = v.X + this->a * cos((double)i * PI / 4);
 		double y = v.Y + this->a * sin((double)i * PI / 4);
+		if (x <= 0 || x > widthScreen || y <= 0 || y > heightScreen) {
+			throw Exception("Выход за границы окна");
+		}
 		points[i] = Point(x, y);
 	}
 	
@@ -39,7 +42,6 @@ void Octagon::show(System::Drawing::Graphics^ g, System::Drawing::Color out, Sys
 	gp->AddLine(System::Drawing::Point(points[6].X, points[6].Y), System::Drawing::Point(points[7].X, points[7].Y));
 	gp->AddLine(System::Drawing::Point(points[7].X, points[7].Y), System::Drawing::Point(points[0].X, points[0].Y));
 	gp->CloseFigure();
-
 	//g->DrawLines(p, points);
 	g->FillPath(b, gp);
 	g->DrawPath(p, gp);
@@ -56,9 +58,6 @@ void Octagon::hide(System::Drawing::Graphics^ g) {
 	for (int i = 0; i < OCTAGON_ANGLES; i++) {
 		double x = v.X + this->a * cos((double)i * PI / 4);
 		double y = v.Y + this->a * sin((double)i * PI / 4);
-		if (x <= 0 || x > widthScreen || y <= 0 || y > heightScreen) {
-			throw Exception("Выход за границы окна");
-		}
 		points[i] = Point(x, y);
 	}
 

@@ -3,6 +3,7 @@
 #include "Figure.h"
 #include "Pentagone.h"
 #include "Octagon.h"
+#include "Circle.h"
 //#include "myStorage.h"
 FigureArr farr;
 namespace CppCLRWinFormsProject {
@@ -71,6 +72,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ outColorBtn;
 	private: System::Windows::Forms::Button^ backColorBtn;
 	private: System::Windows::Forms::RadioButton^ octaRadio;
+	private: System::Windows::Forms::RadioButton^ circleRadio;
 
 
 
@@ -117,12 +119,13 @@ namespace CppCLRWinFormsProject {
 			this->outColorBtn = (gcnew System::Windows::Forms::Button());
 			this->backColorBtn = (gcnew System::Windows::Forms::Button());
 			this->octaRadio = (gcnew System::Windows::Forms::RadioButton());
+			this->circleRadio = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
 			// xCorLabel
 			// 
 			this->xCorLabel->AutoSize = true;
-			this->xCorLabel->Location = System::Drawing::Point(12, 293);
+			this->xCorLabel->Location = System::Drawing::Point(12, 282);
 			this->xCorLabel->Name = L"xCorLabel";
 			this->xCorLabel->Size = System::Drawing::Size(135, 20);
 			this->xCorLabel->TabIndex = 0;
@@ -131,7 +134,7 @@ namespace CppCLRWinFormsProject {
 			// yCorLabel
 			// 
 			this->yCorLabel->AutoSize = true;
-			this->yCorLabel->Location = System::Drawing::Point(12, 325);
+			this->yCorLabel->Location = System::Drawing::Point(12, 313);
 			this->yCorLabel->Name = L"yCorLabel";
 			this->yCorLabel->Size = System::Drawing::Size(135, 20);
 			this->yCorLabel->TabIndex = 1;
@@ -140,11 +143,11 @@ namespace CppCLRWinFormsProject {
 			// sideLengthLabel
 			// 
 			this->sideLengthLabel->AutoSize = true;
-			this->sideLengthLabel->Location = System::Drawing::Point(12, 359);
+			this->sideLengthLabel->Location = System::Drawing::Point(12, 345);
 			this->sideLengthLabel->Name = L"sideLengthLabel";
-			this->sideLengthLabel->Size = System::Drawing::Size(126, 20);
+			this->sideLengthLabel->Size = System::Drawing::Size(58, 20);
 			this->sideLengthLabel->TabIndex = 2;
-			this->sideLengthLabel->Text = L"Длина стороны";
+			this->sideLengthLabel->Text = L"Длина";
 			// 
 			// triaRadio
 			// 
@@ -153,7 +156,6 @@ namespace CppCLRWinFormsProject {
 			this->triaRadio->Name = L"triaRadio";
 			this->triaRadio->Size = System::Drawing::Size(129, 24);
 			this->triaRadio->TabIndex = 3;
-			this->triaRadio->TabStop = true;
 			this->triaRadio->Text = L"Треугольник";
 			this->triaRadio->UseVisualStyleBackColor = true;
 			// 
@@ -164,7 +166,6 @@ namespace CppCLRWinFormsProject {
 			this->pentaRadio->Name = L"pentaRadio";
 			this->pentaRadio->Size = System::Drawing::Size(141, 24);
 			this->pentaRadio->TabIndex = 4;
-			this->pentaRadio->TabStop = true;
 			this->pentaRadio->Text = L"Пятиугольник";
 			this->pentaRadio->UseVisualStyleBackColor = true;
 			// 
@@ -181,21 +182,21 @@ namespace CppCLRWinFormsProject {
 			// 
 			// xCorBox
 			// 
-			this->xCorBox->Location = System::Drawing::Point(157, 293);
+			this->xCorBox->Location = System::Drawing::Point(157, 282);
 			this->xCorBox->Name = L"xCorBox";
 			this->xCorBox->Size = System::Drawing::Size(100, 26);
 			this->xCorBox->TabIndex = 7;
 			// 
 			// yCorBox
 			// 
-			this->yCorBox->Location = System::Drawing::Point(157, 325);
+			this->yCorBox->Location = System::Drawing::Point(157, 314);
 			this->yCorBox->Name = L"yCorBox";
 			this->yCorBox->Size = System::Drawing::Size(100, 26);
 			this->yCorBox->TabIndex = 8;
 			// 
 			// sideLengthBox
 			// 
-			this->sideLengthBox->Location = System::Drawing::Point(157, 356);
+			this->sideLengthBox->Location = System::Drawing::Point(157, 346);
 			this->sideLengthBox->Name = L"sideLengthBox";
 			this->sideLengthBox->Size = System::Drawing::Size(100, 26);
 			this->sideLengthBox->TabIndex = 9;
@@ -299,9 +300,20 @@ namespace CppCLRWinFormsProject {
 			this->octaRadio->Name = L"octaRadio";
 			this->octaRadio->Size = System::Drawing::Size(159, 24);
 			this->octaRadio->TabIndex = 19;
-			this->octaRadio->TabStop = true;
 			this->octaRadio->Text = L"Восьмиугольник";
 			this->octaRadio->UseVisualStyleBackColor = true;
+			// 
+			// circleRadio
+			// 
+			this->circleRadio->AutoSize = true;
+			this->circleRadio->Checked = true;
+			this->circleRadio->Location = System::Drawing::Point(16, 389);
+			this->circleRadio->Name = L"circleRadio";
+			this->circleRadio->Size = System::Drawing::Size(125, 24);
+			this->circleRadio->TabIndex = 20;
+			this->circleRadio->TabStop = true;
+			this->circleRadio->Text = L"Окружность";
+			this->circleRadio->UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
@@ -309,6 +321,7 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Bisque;
 			this->ClientSize = System::Drawing::Size(839, 600);
+			this->Controls->Add(this->circleRadio);
 			this->Controls->Add(this->octaRadio);
 			this->Controls->Add(this->backColorBtn);
 			this->Controls->Add(this->outColorBtn);
@@ -356,6 +369,10 @@ namespace CppCLRWinFormsProject {
 			else if (octaRadio->Checked) {
 				Octagon* octa = new Octagon(xcor, ycor, side, widthScreen, heightScreen);
 				octa->show(h, outColorBtn->BackColor, backColorBtn->BackColor);
+			}
+			else if (circleRadio->Checked) {
+				Circle* circle = new Circle(xcor, ycor, side, widthScreen, heightScreen);
+				circle->show(h, outColorBtn->BackColor, backColorBtn->BackColor);
 			}
 		}
 		catch (Figure::Exception ex) {

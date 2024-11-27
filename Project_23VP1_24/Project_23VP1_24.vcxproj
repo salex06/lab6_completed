@@ -130,6 +130,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="FigArr.h" />
     <ClInclude Include="FIgure.h" />
     <ClInclude Include="Form1.h">
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="FigArr.cpp" />
     <ClCompile Include="Figure.cpp" />
