@@ -2,7 +2,7 @@
 #include "Triangle.h"
 #include "Figure.h"
 #include "Pentagone.h"
-#include "ComplexFigure.h"
+#include "Octagon.h"
 //#include "myStorage.h"
 FigureArr farr;
 namespace CppCLRWinFormsProject {
@@ -50,7 +50,7 @@ namespace CppCLRWinFormsProject {
 
 
 
-	private: System::Windows::Forms::RadioButton^ complexRadio;
+
 	private: System::Windows::Forms::Button^ createFigBtn;
 
 
@@ -70,6 +70,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::ColorDialog^ outColorDialog;
 	private: System::Windows::Forms::Button^ outColorBtn;
 	private: System::Windows::Forms::Button^ backColorBtn;
+	private: System::Windows::Forms::RadioButton^ octaRadio;
+
 
 
 
@@ -99,7 +101,6 @@ namespace CppCLRWinFormsProject {
 			this->sideLengthLabel = (gcnew System::Windows::Forms::Label());
 			this->triaRadio = (gcnew System::Windows::Forms::RadioButton());
 			this->pentaRadio = (gcnew System::Windows::Forms::RadioButton());
-			this->complexRadio = (gcnew System::Windows::Forms::RadioButton());
 			this->createFigBtn = (gcnew System::Windows::Forms::Button());
 			this->xCorBox = (gcnew System::Windows::Forms::TextBox());
 			this->yCorBox = (gcnew System::Windows::Forms::TextBox());
@@ -115,12 +116,13 @@ namespace CppCLRWinFormsProject {
 			this->outColorDialog = (gcnew System::Windows::Forms::ColorDialog());
 			this->outColorBtn = (gcnew System::Windows::Forms::Button());
 			this->backColorBtn = (gcnew System::Windows::Forms::Button());
+			this->octaRadio = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
 			// xCorLabel
 			// 
 			this->xCorLabel->AutoSize = true;
-			this->xCorLabel->Location = System::Drawing::Point(12, 330);
+			this->xCorLabel->Location = System::Drawing::Point(12, 293);
 			this->xCorLabel->Name = L"xCorLabel";
 			this->xCorLabel->Size = System::Drawing::Size(135, 20);
 			this->xCorLabel->TabIndex = 0;
@@ -129,7 +131,7 @@ namespace CppCLRWinFormsProject {
 			// yCorLabel
 			// 
 			this->yCorLabel->AutoSize = true;
-			this->yCorLabel->Location = System::Drawing::Point(12, 359);
+			this->yCorLabel->Location = System::Drawing::Point(12, 325);
 			this->yCorLabel->Name = L"yCorLabel";
 			this->yCorLabel->Size = System::Drawing::Size(135, 20);
 			this->yCorLabel->TabIndex = 1;
@@ -138,7 +140,7 @@ namespace CppCLRWinFormsProject {
 			// sideLengthLabel
 			// 
 			this->sideLengthLabel->AutoSize = true;
-			this->sideLengthLabel->Location = System::Drawing::Point(16, 391);
+			this->sideLengthLabel->Location = System::Drawing::Point(12, 359);
 			this->sideLengthLabel->Name = L"sideLengthLabel";
 			this->sideLengthLabel->Size = System::Drawing::Size(126, 20);
 			this->sideLengthLabel->TabIndex = 2;
@@ -147,7 +149,7 @@ namespace CppCLRWinFormsProject {
 			// triaRadio
 			// 
 			this->triaRadio->AutoSize = true;
-			this->triaRadio->Location = System::Drawing::Point(16, 420);
+			this->triaRadio->Location = System::Drawing::Point(16, 450);
 			this->triaRadio->Name = L"triaRadio";
 			this->triaRadio->Size = System::Drawing::Size(129, 24);
 			this->triaRadio->TabIndex = 3;
@@ -166,17 +168,6 @@ namespace CppCLRWinFormsProject {
 			this->pentaRadio->Text = L"Пятиугольник";
 			this->pentaRadio->UseVisualStyleBackColor = true;
 			// 
-			// complexRadio
-			// 
-			this->complexRadio->AutoSize = true;
-			this->complexRadio->Location = System::Drawing::Point(16, 450);
-			this->complexRadio->Name = L"complexRadio";
-			this->complexRadio->Size = System::Drawing::Size(162, 24);
-			this->complexRadio->TabIndex = 5;
-			this->complexRadio->TabStop = true;
-			this->complexRadio->Text = L"Сложная фигура";
-			this->complexRadio->UseVisualStyleBackColor = true;
-			// 
 			// createFigBtn
 			// 
 			this->createFigBtn->Cursor = System::Windows::Forms::Cursors::Hand;
@@ -190,21 +181,21 @@ namespace CppCLRWinFormsProject {
 			// 
 			// xCorBox
 			// 
-			this->xCorBox->Location = System::Drawing::Point(157, 324);
+			this->xCorBox->Location = System::Drawing::Point(157, 293);
 			this->xCorBox->Name = L"xCorBox";
 			this->xCorBox->Size = System::Drawing::Size(100, 26);
 			this->xCorBox->TabIndex = 7;
 			// 
 			// yCorBox
 			// 
-			this->yCorBox->Location = System::Drawing::Point(157, 356);
+			this->yCorBox->Location = System::Drawing::Point(157, 325);
 			this->yCorBox->Name = L"yCorBox";
 			this->yCorBox->Size = System::Drawing::Size(100, 26);
 			this->yCorBox->TabIndex = 8;
 			// 
 			// sideLengthBox
 			// 
-			this->sideLengthBox->Location = System::Drawing::Point(157, 388);
+			this->sideLengthBox->Location = System::Drawing::Point(157, 356);
 			this->sideLengthBox->Name = L"sideLengthBox";
 			this->sideLengthBox->Size = System::Drawing::Size(100, 26);
 			this->sideLengthBox->TabIndex = 9;
@@ -301,12 +292,24 @@ namespace CppCLRWinFormsProject {
 			this->backColorBtn->UseVisualStyleBackColor = true;
 			this->backColorBtn->Click += gcnew System::EventHandler(this, &Form1::backColorBtn_Click);
 			// 
+			// octaRadio
+			// 
+			this->octaRadio->AutoSize = true;
+			this->octaRadio->Location = System::Drawing::Point(16, 420);
+			this->octaRadio->Name = L"octaRadio";
+			this->octaRadio->Size = System::Drawing::Size(159, 24);
+			this->octaRadio->TabIndex = 19;
+			this->octaRadio->TabStop = true;
+			this->octaRadio->Text = L"Восьмиугольник";
+			this->octaRadio->UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Bisque;
 			this->ClientSize = System::Drawing::Size(839, 600);
+			this->Controls->Add(this->octaRadio);
 			this->Controls->Add(this->backColorBtn);
 			this->Controls->Add(this->outColorBtn);
 			this->Controls->Add(this->messageBox);
@@ -320,7 +323,6 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->yCorBox);
 			this->Controls->Add(this->xCorBox);
 			this->Controls->Add(this->createFigBtn);
-			this->Controls->Add(this->complexRadio);
 			this->Controls->Add(this->pentaRadio);
 			this->Controls->Add(this->triaRadio);
 			this->Controls->Add(this->sideLengthLabel);
@@ -351,9 +353,9 @@ namespace CppCLRWinFormsProject {
 				Pentagone* penta = new Pentagone(xcor, ycor, side, widthScreen, heightScreen);
 				penta->show(h, outColorBtn->BackColor, backColorBtn->BackColor);
 			}
-			else if (complexRadio->Checked) {
-				ComplexFigure* complex = new ComplexFigure(new Triangle(xcor, ycor, side, widthScreen, heightScreen), new Pentagone(xcor, ycor, side, widthScreen, heightScreen));
-				complex->show(h, outColorBtn->BackColor, backColorBtn->BackColor);
+			else if (octaRadio->Checked) {
+				Octagon* octa = new Octagon(xcor, ycor, side, widthScreen, heightScreen);
+				octa->show(h, outColorBtn->BackColor, backColorBtn->BackColor);
 			}
 		}
 		catch (Figure::Exception ex) {

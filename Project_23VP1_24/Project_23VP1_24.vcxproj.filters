@@ -47,7 +47,7 @@
     <ClInclude Include="Pentagone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ComplexFigure.h">
+    <ClInclude Include="Octagon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -79,7 +79,7 @@
     <ClCompile Include="Pentagone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ComplexFigure.cpp">
+    <ClCompile Include="Octagon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

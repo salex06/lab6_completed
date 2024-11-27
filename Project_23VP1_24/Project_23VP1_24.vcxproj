@@ -130,12 +130,12 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ComplexFigure.h" />
     <ClInclude Include="FigArr.h" />
     <ClInclude Include="FIgure.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Octagon.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pentagone.h" />
     <ClInclude Include="Point.h" />
@@ -145,11 +145,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
-    <ClCompile Include="ComplexFigure.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="FigArr.cpp" />
     <ClCompile Include="Figure.cpp" />
     <ClCompile Include="Form1.cpp" />
+    <ClCompile Include="Octagon.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
